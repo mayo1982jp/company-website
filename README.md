@@ -31,9 +31,9 @@
 ## 🛠️ 使用技術
 
 - **開発環境**: Google AI Studio
-- **フロントエンド**: React 19, TypeScript
+- **フロントエンド**: React 18, TypeScript
 - **スタイリング**: Tailwind CSS
-- **ルーティング**: React Router v7
+- **ルーティング**: React Router v6
 - **AI**: Google Gemini API (@google/genai)
 - **アイコン**: Lucide React
 - **モジュール解決**: esm.sh (ビルドステップ不要)
