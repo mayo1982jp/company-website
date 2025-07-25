@@ -1,14 +1,79 @@
-# Run and deploy your AI Studio app
+# QuantumLeap AI - 企業サイト デモ
 
-This contains everything you need to run your app locally.
+先進的なUI/UXを意識して制作した、架空のAIエージェント開発企業「QuantumLeap AI」のコーポレートサイトです。
+このプロジェクトは、フロントエンド開発スキルを示すためのポートフォリオとして、**Google AI Studio** を活用して作成されました。
 
-## Run Locally
+## ✨ ライブデモ
 
-**Prerequisites:**  Node.js
+[こちらのリンクからデプロイされたサイトを閲覧できます。](https://mayo1982jp.github.io/company-website/)
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🚀 主な機能
+
+- **モダンなデザイン**: Apple製品のWebサイトを参考に、クリーンで洗練されたデザインを実装。
+- **レスポンシブ対応**: デスクトップからスマートフォンまで、あらゆるデバイスで最適に表示されます。
+- **インタラクティブなUI**: フェードインアニメーションやホバーエフェクトなど、ユーザー体験を高める動きを実装。
+- **AIチャットボット**: お問い合わせページには、**Google Gemini API (`gemini-2.5-flash`)** を利用したAIアシスタントを搭載し、簡単な質問に自動で応答します。
+- **コンポーネントベース設計**: Reactを使用し、再利用可能でメンテナンス性の高いコンポーネントで構築。
+- **静的型付け**: TypeScriptを導入し、コードの堅牢性と開発効率を向上。
+
+### ページ構成
+- **ホーム**: 企業のビジョンを伝えるヒーローセクション。
+- **事業内容**: 提供サービスの詳細をカード形式で紹介。
+- **企業情報**: ミッション、ビジョン、会社概要を掲載。
+- **ニュース**: Gridレイアウトで最新情報を表示。
+- **採用情報**: アコーディオンUIで募集職種の詳細を表示。
+- **お問い合わせ**: フォームとAIアシスタントを設置。
+
+---
+
+## 🛠️ 使用技術
+
+- **開発環境**: Google AI Studio
+- **フロントエンド**: React 19, TypeScript
+- **スタイリング**: Tailwind CSS
+- **ルーティング**: React Router v7
+- **AI**: Google Gemini API (@google/genai)
+- **アイコン**: Lucide React
+- **モジュール解決**: esm.sh (ビルドステップ不要)
+
+---
+
+## 📂 ディレクトリ構成
+
+```
+.
+├── components/       # 共通コンポーネント (Header, Footer, etc.)
+├── pages/            # 各ページのコンポーネント
+├── services/         # API連携などのサービス層
+├── App.tsx           # アプリケーションのルーティング定義
+├── index.html        # HTMLエントリーファイル
+├── index.tsx         # アプリケーションのエントリーポイント
+├── types.ts          # TypeScriptの型定義
+└── readme.md         # このファイル
+```
+
+---
+
+## 📝 ローカルでの実行方法
+
+このプロジェクトは、`importmap` を利用しているため、ローカル環境でビルドツールなしに簡単に実行できます。
+
+1.  リポジトリをクローンします:
+    ```bash
+    git clone https://github.com/[your-github-username]/[your-repo-name].git
+    cd [your-repo-name]
+    ```
+
+2.  **APIキーの設定**:
+    AIアシスタント機能（お問い合わせページ）を利用するには、Googleから取得したAPIキーが必要です。このプロジェクトは `process.env.API_KEY` からキーを読み込むように作られていますが、ローカルサーバー環境ではこの変数を直接設定する機能がない場合があります。AIアシスタント機能のテストを行うには、環境変数をサポートする開発サーバー（ViteやCreate React Appなど）でプロジェクトを再構成するか、一時的にコード内でキーを直接指定する必要があります（ただし、そのコードはコミットしないでください）。
+
+3.  ローカルサーバーを起動します。Pythonがインストールされている場合、以下のコマンドが利用できます。
+    ```bash
+    # Python 3
+    python -m http.server
+    ```
+    その後、ブラウザで `http://localhost:8000` を開きます。
+
+---
