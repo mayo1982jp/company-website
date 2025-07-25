@@ -5,16 +5,15 @@
 
 ## ✨ ライブデモ
 
-[こちらのリンクからデプロイされたサイトを閲覧できます。](https://mayo1982jp.github.io/company-website/)
+[こちらのリンクからデプロイされたサイトを閲覧できます。](https://aistudio.google.com/apps/drive/18gvfoQf43T07HFN_QWVAxrS3UkxL5RKi?showPreview=true&resourceKey=)
 
 ---
 
 ## 🚀 主な機能
 
-- **モダンなデザイン**: Apple製品のWebサイトを参考に、クリーンで洗練されたデザインを実装。
+- **モダンなデザイン**: AppleのWebサイトを参考に、クリーンで洗練されたデザインを実装。
 - **レスポンシブ対応**: デスクトップからスマートフォンまで、あらゆるデバイスで最適に表示されます。
 - **インタラクティブなUI**: フェードインアニメーションやホバーエフェクトなど、ユーザー体験を高める動きを実装。
-- **AIチャットボット**: お問い合わせページには、**Google Gemini API (`gemini-2.5-flash`)** を利用したAIアシスタントを搭載し、簡単な質問に自動で応答します。
 - **コンポーネントベース設計**: Reactを使用し、再利用可能でメンテナンス性の高いコンポーネントで構築。
 - **静的型付け**: TypeScriptを導入し、コードの堅牢性と開発効率を向上。
 
@@ -24,18 +23,17 @@
 - **企業情報**: ミッション、ビジョン、会社概要を掲載。
 - **ニュース**: Gridレイアウトで最新情報を表示。
 - **採用情報**: アコーディオンUIで募集職種の詳細を表示。
-- **お問い合わせ**: フォームとAIアシスタントを設置。
+- **お問い合わせ**: フォームとEメールアドレスを設置。
 
 ---
 
 ## 🛠️ 使用技術
 
-- **開発環境**: Google AI Studio
+- **開発環境**: Google AI Studio (Build)
 - **フロントエンド**: React 18, TypeScript
 - **スタイリング**: Tailwind CSS
 - **ルーティング**: React Router v6
 - **AI**: Google Gemini API (@google/genai)
-- **アイコン**: Lucide React
 - **モジュール解決**: esm.sh (ビルドステップ不要)
 
 ---
@@ -53,56 +51,3 @@
 ├── types.ts          # TypeScriptの型定義
 └── readme.md         # このファイル
 ```
-
----
-
-## 📝 ローカルでの実行方法
-
-このプロジェクトは、`importmap` を利用しているため、ローカル環境でビルドツールなしに簡単に実行できます。
-
-### ⚠️ **【重要】APIキーの安全な設定**
-
-AIアシスタント機能にはGoogle GeminiのAPIキーが必要です。**APIキーを絶対にGitリポジトリにコミットしないでください。**
-
-以下の手順で、安全にローカル環境でAPIキーを設定します。
-
-1.  **リポジトリをクローンします:**
-    ```bash
-    git clone https://github.com/[your-github-username]/[your-repo-name].git
-    cd [your-repo-name]
-    ```
-
-2.  **`.env.local` ファイルを作成します:**
-    プロジェクトのルートディレクトリに `.env.local` という名前のファイルを作成し、以下のようにAPIキーを記述します。
-
-    ```
-    API_KEY=ここにあなたのGoogle_API_KEYを貼り付けます
-    ```
-
-3.  **`.gitignore` ファイルを確認します:**
-    `.gitignore` ファイルに `.env.local` や `.env*` が含まれていることを確認してください。これにより、誤ってAPIキーがコミットされるのを防ぎます。もしファイルがなければ、以下の内容で作成してください。
-    ```
-    # Environment variables
-    .env*
-    
-    # Dependencies
-    node_modules/
-    ```
-
-4.  **ローカルサーバーを起動します:**
-    このプロジェクトは `process.env` を利用しているため、Viteのようなモダンな開発サーバーで起動するのが最も簡単です。
-    
-    もしNode.jsがインストールされていない場合は、インストールしてください。
-    
-    ```bash
-    # Viteをインストール
-    npm install -g vite
-
-    # プロジェクトのルートでViteを起動
-    vite
-    ```
-    
-    Viteが自動で `index.html` を読み込み、`process.env.API_KEY` を `.env.local` ファイルから注入してくれます。
-    ブラウザで `http://localhost:5173` （またはターミナルに表示されたアドレス）を開きます。
-
----
